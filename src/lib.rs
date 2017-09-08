@@ -17,7 +17,7 @@ fn retpy(py: Python) -> PyResult<String> {
 }
 
 fn returl(py: Python) -> PyResult<PyObject> {
-    let url = "http://validate.jsontest.com/?json=%7B%22key%22:%22value%22%7D";
+    let url = "https://api.chucknorris.io/jokes/random";
     let resp = http::handle()
      .get(url)
      .exec()
