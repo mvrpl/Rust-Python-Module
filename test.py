@@ -10,7 +10,7 @@ print(mvrpl.retpy())
 print
 
 print("------------- Retorna Mapa Python -------------")
-for k,v in mvrpl.retmapa().iteritems():
+for k,v in mvrpl.retmapa().items():
     print("Chave: %s" % k)
     print("Valor: %s" % v)
     print
