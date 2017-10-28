@@ -42,8 +42,8 @@ fn retmapa(py: Python) -> PyResult<PyDict> {
     Ok(dicionario)
 }
 
-fn reclista(py: Python, lista_python: Vec<i32>) -> PyResult<PyList> {
-    let lista_soma = lista_python.iter().map(|&x| x + x).collect::<Vec<i32>>();
+fn reclista(py: Python, lista_python: Vec<i64>) -> PyResult<PyList> {
+    let lista_soma = lista_python.iter().map(|&x| x + x).collect::<Vec<i64>>();
     let lista_retorno = lista_soma.to_py_object(py);
     Ok(lista_retorno)
 }
@@ -66,11 +66,11 @@ fn rec_btree_mapa(py: Python, mapa: PyDict) -> PyResult<PyDict> {
 }
 
 py_module_initializer!(mvrpl, initmvrpl, PyInit_mvrpl, |py, m| {
-    try!(m.add(py, "__doc__", "Este modulo foi escrito em Rust."));
+    try!(m.add(py, "__doc__", "Este módulo foi escrito em Rust."));
     try!(m.add(py, "retpy", py_fn!(py, retpy())));
     try!(m.add(py, "retmapa", py_fn!(py, retmapa())));
     try!(m.add(py, "returl", py_fn!(py, returl())));
-    try!(m.add(py, "reclista", py_fn!(py, reclista(rand_int:Vec<i32>))));
+    try!(m.add(py, "reclista", py_fn!(py, reclista(rand_int:Vec<i64>))));
     try!(m.add(py, "mapa", py_fn!(py, btree_mapa())));
     try!(m.add(py, "recmapa", py_fn!(py, rec_btree_mapa(rand_int:PyDict))));
     Ok(())
