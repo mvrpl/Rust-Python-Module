@@ -12,8 +12,7 @@ build:
 	cargo build --release
 	mv ./target/release/$(TARGET) ./mvrpl.so
 
-run: 
-	build
+run: build
 	python test.py
 
 clean:
